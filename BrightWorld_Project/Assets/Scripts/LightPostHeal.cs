@@ -3,6 +3,7 @@ using System.Collections;
 
 public class LightPostHeal : MonoBehaviour {
 
+    public Sprite brokenSprite;
 	private float healVal;
 
 	// Use this for initialization
@@ -24,7 +25,10 @@ public class LightPostHeal : MonoBehaviour {
 			float val = 30f / 3 * Time.deltaTime;
 			LightManager.light += val;
 			healVal -= val;
-
+            if (healVal <= 0)
+            {
+                GetComponent<SpriteRenderer>().sprite = brokenSprite;
+            }
 		}
 	
 	}
