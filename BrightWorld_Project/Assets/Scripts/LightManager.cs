@@ -9,13 +9,6 @@ public class LightManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-		if (light <= 50f) 
-		{
-
-			isDark = true;
-
-		}
 	
 	}
 	
@@ -29,6 +22,7 @@ public class LightManager : MonoBehaviour {
 			isDark = true;
 
 		}
+			
 
 		if (!isDark) {
 

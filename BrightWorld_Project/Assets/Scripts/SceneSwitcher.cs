@@ -9,7 +9,6 @@ public class SceneSwitcher : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
 	}
 
 	// Update is called once per frame
@@ -22,11 +21,13 @@ public class SceneSwitcher : MonoBehaviour {
 		}
 		if (light >= 100f && isDark) {
 			SceneManager.LoadScene (0);
+			LightManager.isDark = false;
 		}
 	}
 
 	void Awake(){
 		DontDestroyOnLoad (this);
+		SceneManager.LoadScene (0);
 	}
 
 }
