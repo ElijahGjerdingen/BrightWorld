@@ -21,10 +21,12 @@ public class SpriteManagerBlumper : MonoBehaviour {
 		if (LightManager.isDark && isFriendly) {
 			GetComponent<SpriteRenderer>().sprite = enemySprite;
 			isFriendly = false;
+			gameObject.layer = 13;
 		} else {
 			if (!LightManager.isDark && !isFriendly) {
 				GetComponent<SpriteRenderer>().sprite = friendlySprite;
 				isFriendly = true;
+				gameObject.layer = 9;
 			}
 		}
 	}
