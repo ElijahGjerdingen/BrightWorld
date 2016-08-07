@@ -23,6 +23,9 @@ public class SceneSwitcher : MonoBehaviour {
 			SceneManager.LoadScene (0);
 			LightManager.isDark = false;
 		}
+		if (light <= 0f) {
+			SceneManager.LoadScene (3);
+		}
 	}
 
 	void Awake(){
