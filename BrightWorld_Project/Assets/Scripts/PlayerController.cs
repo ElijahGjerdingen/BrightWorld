@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     private Animator anim;					// Reference to the player's animator component.
 
     [SerializeField] public float speed = 0f;
+    [SerializeField] public float maxSpeed = 0f;
     [SerializeField] public float jumpForce = 0f;        // Amount of force added when the player jumps.
 
     // Use this for initialization
@@ -26,20 +27,31 @@ public class PlayerController : MonoBehaviour {
     {
 	    if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") == -1)
         {
+            if(speed < maxSpeed) {
+                speed += 0.5f;
+            }
+
             rigidBody.velocity = new Vector2(-speed, rigidBody.velocity.y);
             transform.localRotation = Quaternion.Euler(0, 180, 0);
             anim.SetBool("Running", true);
         }
         else if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") == 1)
         {
+            if (speed < maxSpeed)
+            {
+                speed += 0.5f;
+            }
+
             rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
             transform.localRotation = Quaternion.Euler(0, 0, 0);
             anim.SetBool("Running", true);
-
         }
         else
         {
             anim.SetBool("Running", false);
+            if(speed > 0){
+                speed -= 0.5f;
+            }
         }
 
         if ( ( Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton0) ) && grounded)
