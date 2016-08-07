@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class LightManager : MonoBehaviour {
 
+    
 	public static double light = 100f;
 	public static bool isDark = false;
 	public double lightMoniter = light;
@@ -14,8 +16,8 @@ public class LightManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		lightMoniter = light;
+        
+        lightMoniter = light;
 		if (light <= 50f) 
 		{
 
