@@ -25,6 +25,8 @@ public class SceneSwitcher : MonoBehaviour {
 		}
 		if (light <= 0f) {
 			SceneManager.LoadScene (3);
+			light = 1000;
+			isDark = false;
 		}
 	}
 
