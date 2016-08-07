@@ -22,16 +22,17 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-	    if(Input.GetKey(KeyCode.A))
+	    if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") == -1)
         {
             rigidBody.velocity = new Vector2(-speed, rigidBody.velocity.y);
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
-        if(Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") == 1)
         {
             rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        if (Input.GetKey(KeyCode.Space) && grounded)
+        if ( ( Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton0) ) && grounded)
         {
             rigidBody.AddForce(new Vector2(0f, jumpForce));
             grounded = false;
