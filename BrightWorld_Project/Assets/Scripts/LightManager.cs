@@ -5,6 +5,7 @@ public class LightManager : MonoBehaviour {
 
 	public static double light = 100f;
 	public static bool isDark = false;
+	public double lightMoniter = light;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,7 @@ public class LightManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		lightMoniter = light;
 		if (light <= 50f) 
 		{
 
