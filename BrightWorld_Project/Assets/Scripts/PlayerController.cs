@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 
     bool jump = false;              // Condition for whether the player should jump.	
     public bool gamestarted = false;        // Is the player currently running?
-    private bool grounded = false;          // Whether or not the player is grounded.
+    [SerializeField] private bool grounded = false;          // Whether or not the player is grounded.
     private Rigidbody2D rigidBody;          // Reference to the player's rigidbody
     private Animator anim;					// Reference to the player's animator component.
 
@@ -28,20 +28,32 @@ public class PlayerController : MonoBehaviour {
         {
             rigidBody.velocity = new Vector2(-speed, rigidBody.velocity.y);
             transform.localRotation = Quaternion.Euler(0, 180, 0);
+            anim.SetBool("Running", true);
         }
-        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") == 1)
+        else if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") == 1)
         {
             rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
             transform.localRotation = Quaternion.Euler(0, 0, 0);
+            anim.SetBool("Running", true);
+
         }
+        else
+        {
+            anim.SetBool("Running", false);
+        }
+
         if ( ( Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton0) ) && grounded)
         {
             rigidBody.velocity = (new Vector2(0f, jumpForce));
             grounded = false;
+            anim.SetBool("Grounded", false);
+            anim.SetTrigger("Jump");
         }
 	}
     void OnCollisionEnter2D(Collision2D hit)
     {
         grounded = true;
+        anim.SetBool("Grounded", true);
+
     }
 }
