@@ -4,7 +4,7 @@ using System.Collections;
 public class TallManMovement : MonoBehaviour {
     private bool leftHit = false;
     private Rigidbody2D rigidBody;
-    public float speed = 5.0f;
+    public float speed = 0.1f;
     // Use this for initialization Hi
     void Start () {
         rigidBody = GetComponent<Rigidbody2D>();

@@ -13,7 +13,7 @@ public class BlobJump : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rigidBody = GetComponent<Rigidbody2D>();
-        rigidBody.velocity = new Vector2(-3.0f, 10.0f); 
+        rigidBody.velocity = new Vector2(-3.0f, 3.0f); 
 	}
     void OnCollisionEnter2D(Collision2D hit)
     {
