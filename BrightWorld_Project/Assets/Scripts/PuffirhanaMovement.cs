@@ -5,6 +5,10 @@ public class PuffirhanaMovement : MonoBehaviour {
 
     public float placex;
     public float placey;
+    public float maxX;
+    public float minX;
+    public float maxY;
+    public float minY;
     public float xSpeed = -3.0f;
     public float ySpeed = -0.5f;
     private bool leftHit = false;
@@ -27,25 +31,25 @@ public class PuffirhanaMovement : MonoBehaviour {
         
         placey = gameObject.transform.position.y;
         placex = gameObject.transform.position.x;
-        if (placex >= 30)
+        if (placex >= maxX)
         {
             xSpeed = -3.0f;
             rigidBody.velocity = new Vector2(xSpeed, ySpeed);
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        if (placex <= 6.0f)
+        if (placex <= minX)
         {
             xSpeed = 3.0f;
             rigidBody.velocity = new Vector2(xSpeed, ySpeed);
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         
-        if (placey >= 8.0)
+        if (placey >= maxY)
         {
             ySpeed = -0.5f;
             rigidBody.velocity = new Vector2(xSpeed, ySpeed);
         }
-        if (placey <= 5.0f)
+        if (placey <= minY)
         {
             ySpeed = 0.5f;
             rigidBody.velocity = new Vector2(xSpeed, ySpeed);
