@@ -17,7 +17,7 @@ public class TallManMovement : MonoBehaviour {
         rigidBody.velocity = new Vector2(-7.5f, -10.0f);
         if (leftHit == true)
         {
-            rigidBody.velocity += rigidBody.velocity * 2;
+            rigidBody.velocity += new Vector2(7.5f, -10.0f);
         }
 	}
 }
