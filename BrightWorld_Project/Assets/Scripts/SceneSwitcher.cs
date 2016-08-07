@@ -6,9 +6,11 @@ public class SceneSwitcher : MonoBehaviour {
 
 	private static double light;
 	private static bool isDark;
+	private static bool gameover;
 
 	// Use this for initialization
 	void Start () {
+		gameover = false;
 	}
 
 	// Update is called once per frame
@@ -23,10 +25,9 @@ public class SceneSwitcher : MonoBehaviour {
 			SceneManager.LoadScene (0);
 			LightManager.isDark = false;
 		}
-		if (light <= 0f) {
+		if (light <= 0f && !gameover) {
+			gameover = true;
 			SceneManager.LoadScene (3);
-			light = 1000;
-			isDark = false;
 		}
 	}
 
