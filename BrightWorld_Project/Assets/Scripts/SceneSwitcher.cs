@@ -19,10 +19,10 @@ public class SceneSwitcher : MonoBehaviour {
 		isDark = LightManager.isDark;
 
 		if (light <= 50f && !isDark) {
-			SceneManager.LoadScene (1);
+			SceneManager.LoadScene (2);
 		}
 		if (light >= 100f && isDark) {
-			SceneManager.LoadScene (0);
+			SceneManager.LoadScene (1);
 			LightManager.isDark = false;
 		}
 		if (light <= 0f && !gameover) {
@@ -33,7 +33,7 @@ public class SceneSwitcher : MonoBehaviour {
 
 	void Awake(){
 		DontDestroyOnLoad (this);
-		SceneManager.LoadScene (0);
+		SceneManager.LoadScene (1);
 	}
 
 }
