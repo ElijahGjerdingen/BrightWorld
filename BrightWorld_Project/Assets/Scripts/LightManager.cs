@@ -4,7 +4,7 @@ using System.Collections;
 public class LightManager : MonoBehaviour {
 
 	public static double light = 100f;
-	public static bool dark = false;
+	public static bool isDark = false;
 
 	// Use this for initialization
 	void Start () {
@@ -12,7 +12,7 @@ public class LightManager : MonoBehaviour {
 		if (light <= 50f) 
 		{
 
-			dark = true;
+			isDark = true;
 
 		}
 	
@@ -20,15 +20,15 @@ public class LightManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 		if (light <= 50f) 
 		{
 
-			dark = true;
+			isDark = true;
 
 		}
 
-		if (!dark) {
+		if (!isDark) {
 
 			light -= Time.deltaTime * 3.0;
 		}
