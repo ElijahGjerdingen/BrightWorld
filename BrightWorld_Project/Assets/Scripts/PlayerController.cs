@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour {
         }
         if ( ( Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton0) ) && grounded)
         {
-            rigidBody.AddForce(new Vector2(0f, jumpForce));
+            rigidBody.velocity = (new Vector2(0f, jumpForce));
             grounded = false;
         }
 	}

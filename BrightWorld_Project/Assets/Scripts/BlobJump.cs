@@ -22,7 +22,7 @@ public class BlobJump : MonoBehaviour {
     {
         if (grounded)
         {
-            rigidBody.AddForce(new Vector2(0f, jumpForce));
+            rigidBody.velocity = (new Vector2(0f, jumpForce));
             rigidBody.velocity = new Vector2(-7.5f, 10.0f);
             grounded = false;
             if (leftHit == true)
