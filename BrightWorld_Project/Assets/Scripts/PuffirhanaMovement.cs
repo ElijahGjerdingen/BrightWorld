@@ -18,12 +18,14 @@ public class PuffirhanaMovement : MonoBehaviour {
         placex = gameObject.transform.position.x;
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.velocity = new Vector2(-3.0f, 0.0f);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
+        placey = gameObject.transform.position.y;
         placex = gameObject.transform.position.x;
         if (placex >= 30)
         {
@@ -37,7 +39,7 @@ public class PuffirhanaMovement : MonoBehaviour {
             rigidBody.velocity = new Vector2(xSpeed, ySpeed);
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
-        placey = gameObject.transform.position.y;
+        
         if (placey >= 8.0)
         {
             ySpeed = -0.5f;
